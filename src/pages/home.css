@@ -1,0 +1,863 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.homeWrapper{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+.navWrapper{
+    background-color: rgb(46, 45, 45);
+    color: rgb(218, 216, 216);
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 15vw;
+    height: 90vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin-top: 10vh;
+    position: fixed;
+    gap:20px;
+}
+@media only screen and (max-width: 1524px){
+    .navWrapper{
+        width: 15vw !important;
+    }    
+    span{
+        margin-left: 0 !important;
+    }
+    .Video{
+        width: 23vw !important;
+    }
+    .Image{
+        width:100% !important;
+    }
+    .VideoInfoContainer{
+        width: 80vw !important;
+    }
+    .Info{
+        width: 50vw !important;
+    }
+}
+@media only screen and (max-width: 1000px){
+    .navWrapper{
+        width: 20vw !important;
+        height: 100% !important;
+    }    
+    .videoWrapper{
+        margin-left: 20vw !important;
+    } 
+    .Video{
+        width: 30vw !important;
+    }
+    .Image{
+        width:100% !important;
+    }
+    .VideoInfoContainer{
+        width: 80vw !important;
+    }
+    .Info{
+        width: 50vw !important;
+    }
+    .searchVideoContainer{
+        width: 100vw !important;
+        margin-left: 0 !important;
+    }
+    .channelViewInfoContainer{
+        width: 100vw !important;
+        margin-left: 0 !important;
+    }
+    .videoPlayer{
+        width: 100vw !important;
+        height: 80vh !important;
+        border: none;
+    }
+    .content{
+        align-items: start !important;
+    }
+    .recommendations{
+        display: none;
+    }
+    .title{
+        width: 100vw !important;
+    }
+    .details{
+        width: 100vw !important;
+    }
+    .subscribeButton{
+        width: fit-content !important;
+    }
+    .buttons{
+        width: fit-content !important;
+    }
+}
+@media only screen and (max-width: 710px){
+    .navWrapper{
+        display: none;
+    }
+    .Video{
+        width: 80vw !important;
+        height: 50vh !important;
+        gap: 0 !important;
+        justify-content: center !important;
+    }
+    .Image{
+        width:100% !important;
+    }
+    .videoWrapper{
+        margin-left: 0vw !important;
+        width: 100vw !important;
+    }  
+    .addVideoFormContainer{
+        width: 85vw !important;
+    }
+    .addVideoFormInput{
+        width: 75vw !important;
+    }
+    .addVideoFormTextarea{
+        width: 75vw !important;
+    }
+    .VideoInfoContainer{
+        width: 80vw !important;
+    }
+    .Info{
+        width: 50vw !important;
+    }
+    .search{
+        width: 70vw !important;
+        margin-left: 20px !important;
+    }
+    .profileIcon{
+        display: none;
+        border-radius: none !important;
+    }  
+    .Title{
+        width: 80vw !important;
+    }
+    h1{
+       width: 10vw !important;
+       font-size: 26px !important;
+       text-align: center !important;
+    }
+    .searchedResultsContainer {
+        width: 70vw !important;
+        margin-left: 20px;
+    }
+}
+::-webkit-scrollbar {
+        width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 1px grey; 
+  background-color: #383636;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(22, 22, 22); 
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0e0d0d; 
+}
+.searchWrapper{
+    width: 100vw;
+    height: 10vh;
+    background-color:  rgb(46, 45, 45);
+    color:rgb(218, 216, 216);
+    border-left: 1px solid rgb(43, 42, 42);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+}
+.search{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    width: 40vw;
+    height: 5vh;
+    background-color: rgb(24, 24, 24);
+}
+.searchbarBurronsContainer{
+    display: flex;
+    margin-right: 200px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+.addComments{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+    height: 5vh;
+    background-color: rgb(18, 18, 18);
+}
+.textInputWrapper{
+    width:95%;
+    height: 100%;
+}
+.textInput{
+    background-color: transparent;
+    width:100%;
+    height: 70%;
+    border: none;
+    color: rgb(218, 216, 216);
+    padding-left: 10px;
+}
+input:focus { 
+    outline: none !important;
+    border: none;
+ }
+.iconWrapper{
+    background-color: rgb(37, 37, 37);
+    border: none;
+    color:rgb(218, 216, 216);
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+}
+.videoWrapper{
+    margin-top: 10vh;
+    margin-left: 15vw;
+    width: 85vw;
+    min-height: 60vh;
+    background-color: rgb(37, 37, 37);
+    color:rgb(218, 216, 216);
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.Video{
+    margin-top: 20px;
+    width: 20vw;
+    height: 40vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    cursor: pointer;
+}
+.VideoInfoContainer{
+    width:20vw;
+    height:10vh;
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px
+}
+h2, h3{
+    margin: 0;
+    padding: 0;
+    width: 80%;
+}
+h2{
+    width: 15vw;
+}
+h3{
+    font-size: 14px;
+    font-weight: 300;
+    color: rgb(160, 160, 160)
+}
+.authorIcon{
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+}
+.Image{
+    width: 20vw;
+    height: 25vh;
+    border-radius: 25px;
+}
+.horizontalLine{
+    width: 94%;
+    height: 1px;
+    background-color: rgb(146, 145, 145);
+    margin-left: auto;
+    margin-right: auto;
+}
+.horizontalLineComment{
+    width: 100%;
+    height: 1px;
+    background-color: rgb(146, 145, 145);
+    margin-left: auto;
+    margin-right: auto;
+}
+.clickable{
+    cursor: pointer;
+}
+.loginButton{
+    margin-left: 30px;
+    cursor: pointer;
+    color:rgb(218, 216, 216);
+    background-color: transparent;
+    border: 1px solid rgb(218, 216, 216);
+    border-radius: 5px;
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+h1{
+    background-color: rgb(156, 68, 68);
+    border-radius: 50px;
+    margin-top: 20px;
+    padding: 15px;
+    font-size: 32px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+span{
+    margin-left: 30px;
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+a{
+    text-decoration: none;
+    color: rgb(218, 216, 216)
+}
+.container{
+    width:100%;
+    height: 100%;
+    background-color: rgb(24, 24, 24);
+    display: flex;
+}
+.content{
+    margin-top: 11vh;
+    flex: 8;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    color: rgb(218, 216, 216);
+    gap: 20px;
+}
+.title{
+    font-size: 32px;
+    font-weight: 500;
+    width: 1300px;
+    text-align: left;
+}
+.details{
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: 300;
+    width: 1300px;
+    text-align: left;
+}
+.buttons{
+    display: flex;
+    width: 30%;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+}
+.recommendations{
+    flex:3;
+}
+.recomendedVideoWeapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 90%;
+    height: fit-content;
+    gap: 15px;
+    margin-top: 11vh;
+}
+.recomendedVideo{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    height: 15vh;
+    gap: 15px;
+}
+.recomendedImage{
+    width: 10vw;
+    height: 15vh;
+}
+.videoDescContainer{
+    width: 94%;
+    min-height: 10vh;
+    display:flex;
+    flex-direction: column;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.videoDescAuthorInfo{
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 5vh;
+}
+.channelInfo{
+    display: flex;
+}
+.author{
+    font-size: 24px;
+}
+.subs{
+    font-size: 12px;
+}
+.authorSubsWrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.subscribeButton{
+    width: 10vw;
+    height: 5vh;
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+    color:rgb(218, 216, 216);
+    font-size: 24px;
+    cursor: pointer;
+}
+.subscribed{
+    background-color: gray;
+}
+.hiddenVideoDesc{
+    max-height: 5vh;
+    overflow: hidden;
+}
+.fullVideoDesc{
+    max-height: fit-content;
+    overflow: visible;
+}
+.hideButton
+{
+    background-color: transparent;
+    border: none;
+    color: rgb(160, 160, 160);
+    font-size: 16px;
+    cursor: pointer;
+}
+/*Comments*/
+.commentsContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 100px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+.addCommentContainer, .commentContainer{
+    width: 94%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.addCommentContainer{
+    justify-content: center;
+}
+.commentContainer{
+    justify-content: flex-start;
+    height: 2vh;
+
+}
+.commentInfoContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-left: 10px;
+}
+.commentAuthor,.commentText{
+    margin: 0;
+    padding: 0;
+}
+/*Login*/
+.loginFormWrapper{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.685);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+.loginFormContainer{
+    position:fixed;
+    width: 500px;
+    height: 600px;
+    background-color: rgb(24, 24, 24);
+    margin-top: 10vh;
+    border-radius: 15px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    z-index: 100;
+    
+}
+.loginFormTitle{
+    font-size: 40px;
+    text-align: center;
+    color: rgb(160, 160, 160);
+    width: 450px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.loginForm{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+.formInput{
+    width: 450px;
+    height: 50px;
+    background-color: rgb(43, 42, 42);
+    border: none;
+    text-align: center;
+    font-size: 20px;
+}
+.formSubmit{
+    width: 450px;
+    height: 50px;
+    background-color: rgb(146, 145, 145);
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+.loginRedirection{
+    font-size: 35px;
+    text-align: center;
+    color: rgb(160, 160, 160);
+    margin: auto 50px;
+    cursor: pointer;
+}
+.loginErrorMessage{
+    margin-top: 75px;
+    font-size: 24px;
+    color: rgb(218, 216, 216);
+}
+.userIcon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+.profileIcon{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+.closeLoginForm{
+    color:white;
+    cursor: pointer;
+    margin-left: 90%;
+    margin-top: 10px;
+}
+/*Add Video*/
+.addVideoFormWrapper{
+    background-color: rgba(0, 0, 0, 0.747);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+.addVideoFormContainer{
+    background-color:rgb(37, 37, 37);
+    color:rgb(218, 214, 214);
+    position: absolute;
+    width: 50vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 10;
+}
+.addVideoFormTitle{
+    font-size: 48px;
+    background-color: inherit;
+    color: rgb(218, 214, 214);
+}
+.addVideoFormInput{
+    background-color: inherit;
+    border: solid 1px black;
+    width: 40vw;
+    height: 35px;
+    margin: 10px 0;
+    color:rgb(218, 214, 214);
+    font-size: 24px;
+    padding: 15px;
+}
+.addVideoInputWrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    margin: 0;
+}
+.addVideoFormTextarea{
+    background-color: inherit;
+    border: black solid 1px;
+    width: 40vw;
+    height: 30%;
+    color:rgb(218, 214, 214);
+    font-size: 24px;
+    padding: 15px;
+}
+.addVideoFormSubmitButton{
+    background-color: inherit;
+    color: rgb(218, 214, 214);
+    width: 200px;
+    height: 100px;
+    margin-bottom: 15px;
+    font-size: 32px;
+    cursor: pointer;
+}
+.addVideoFormCloseButton{
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: inherit;
+    border: none;
+    color: rgb(218, 214, 214);
+    font-size: 24px;
+    cursor: pointer;
+}
+.addVideoButton{
+    background-color: inherit;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+}
+.searchVideoSubmitButton{
+    background-color: inherit;
+    border: none;
+    color:rgb(218, 214, 214)
+}
+.searchVideoContainer{
+    width: 85vw;
+    height: 90vh;
+    margin-left: 15vw;
+    margin-top: 10vh;
+    gap: 50px;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-color:rgb(24, 24, 24);
+    z-index: -1;
+}
+.searchedVideo{
+    margin-left: 10vw;
+    display: flex;
+    padding: 10px;
+    gap: 20px;
+    align-items: center;
+}
+.searchedImage{
+    width: 30vw;
+    height: 25vh;
+    border-radius: 25px;
+}
+.searchedVideoInfoContainer{
+    width: 70vw;
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+}
+.searchedInfo{
+    order: -1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 15px;
+}
+.searchedTitle{
+    width: 100%;
+    order: -2;
+}
+.searchedAuthorIcon{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.searchedAuthor{
+    display: flex;
+    gap:10px;
+    align-items: center;
+    font-size: 16px;
+}
+.searchedViews{
+    order: -1;
+}
+.suggestedVideoContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 40px;
+    width: 15vw;
+    height: 80vh;
+}
+.suggestedVideo{
+    width: 10vw;
+    height: 15vh;
+}
+.suggestedImage{
+    width: 10vw;
+    height: 10vh;
+}
+.suggestedTitle{
+    font-size: smaller;
+    width: 10vw;
+    text-align: start;
+}
+.suggestedInfo{
+    justify-content: center;
+}
+.displayTrendingVideos{
+   margin: 0;
+}
+.showSubscribedContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+}
+.channelViewContainer{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    overflow-x: hidden;
+    position: fixed;
+    z-index: -1;
+    flex-direction: column;
+    background-color: rgb(37, 37, 37);
+}
+.channelViewInfoContainer{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 10vh;
+    margin-left: 15vw;
+    width: 85vw;
+    height: 60vh;
+    gap: 10px;
+    background-color: rgb(37, 37, 37);
+}
+.channelViewBanner{
+    width: 100%;
+    min-height: 20vh;
+    max-height: 40vh;
+    margin-top: 5px;
+    height: 20vh;
+    position: relative;
+}
+.userCardContainer{
+    display: flex;
+    margin-top: 3vh;
+}
+.userCardIcon{
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    margin-left: 10vw;
+}
+.channelViewUserCardIcon{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-left: 10vw;
+}
+.userCardHelper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.userCardName{
+    color: rgb(218, 216, 216);
+    font-weight: 700;
+}
+.userCardSubs{
+    color: rgb(165, 165, 165);
+}
+.userCardAndSubbButtonContainer{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 40vw;
+}
+.niggasInParis{
+    background-color: rgb(10, 124, 124);
+    width: 100%;
+    height: 100%;
+}
+.searchedResultsContainer{
+    background-color: #383636;
+    color:rgb(160, 160, 160);
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 8vh;
+    width: 40vw;
+    max-height: 30vh;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-y: hidden;
+}
+.searchedResultItem{
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 25px;
+}
+.searchedResultItem:hover{
+    cursor: pointer;
+    background-color: aliceblue;
+    color: #0e0d0d;
+    font-size: 20px;
+}
