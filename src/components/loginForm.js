@@ -51,6 +51,7 @@ const LoginForm = ({setDisplayLoginForm})=>{
         const data = signIn ? userData : {name:userData.name, password: userData.password}
         try{
             const res = await axios.post(`https://random-videos-api.onrender.com/user${signIn ? '' :'/login'}`,data, {withCredentials: true});
+            console.log(res)
             !signIn &&  dispatch(loginSucces(res.data))
             setDisplayLoginForm(false)
         }catch(e){
