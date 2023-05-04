@@ -50,14 +50,7 @@ const LoginForm = ({setDisplayLoginForm})=>{
         e.preventDefault()
         const data = signIn ? userData : {name:userData.name, password: userData.password}
         try{
-            const res = await axios.post(`https://random-videos-api.onrender.com/user${signIn ? '' :'/login'}`,data, {
-                withCredentials: true,
-                credentials: 'include',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                    },
-            });
+            const res = await axios.post(`https://random-videos-api.onrender.com/user${signIn ? '' :'/login'}`,data, {withCredentials: true});
             !signIn &&  dispatch(loginSucces(res.data))
             setDisplayLoginForm(false)
         }catch(e){

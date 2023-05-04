@@ -34,25 +34,11 @@ const View = ()=>{
     }
 
     const handleLike = async()=>{
-        await axios.put(`https://random-videos-api.onrender.com/video/like/${currentVideo._id}`,{
-            withCredentials: true,
-            credentials: 'include',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-        })
+        await axios.put(`https://random-videos-api.onrender.com/video/like/${currentVideo._id}`,{withCredentials: true})
         dispatch(like(user._id))
     }
     const handleDislike = async()=>{
-        await axios.put(`https://random-videos-api.onrender.com/video/dislike/${currentVideo._id}`,{
-            withCredentials: true,
-            credentials: 'include',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-        })
+        await axios.put(`https://random-videos-api.onrender.com/video/dislike/${currentVideo._id}`,{withCredentials: true})
         dispatch(dislike(user._id))
     }
 
