@@ -11,7 +11,7 @@ const Comments = ({commentsArray})=>{
 
     const handleAddComment = async(e)=>{
         e.preventDefault()
-        const res = await axios.post('http://localhost:5000/comments',{
+        const res = await axios.post('/comments',{
             videoID : path,
             text: text,
         },{withCredentials:true})

@@ -50,7 +50,7 @@ const LoginForm = ({setDisplayLoginForm})=>{
         e.preventDefault()
         const data = signIn ? userData : {name:userData.name, password: userData.password}
         try{
-            const res = await axios.post(`http://localhost:5000/user${signIn ? '' :'/login'}`,data, {
+            const res = await axios.post(`/user${signIn ? '' :'/login'}`,data, {
                 withCredentials: true,
             });
             !signIn &&  dispatch(loginSucces(res.data))
