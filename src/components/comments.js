@@ -14,7 +14,8 @@ const Comments = ({commentsArray})=>{
         const res = await axios.post('https://random-videos-api.onrender.com/comments',{
             videoID : path,
             text: text,
-        },{withCredentials:true})
+        },{withCredentials: true,
+            credentials: 'include'})
         commentsArray.unshift(res.data)
         setText('')
     }
