@@ -16,7 +16,7 @@ const Home = ()=>{
 
     useEffect(()=>{
         const fetchVideos = async ()=>{
-            const res= await axios.get('/video')
+            const res= await axios.get('https://random-videos-api.onrender.com/video')
             setVideos(res.data)
         }
         fetchVideos()

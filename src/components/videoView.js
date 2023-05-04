@@ -34,11 +34,11 @@ const View = ()=>{
     }
 
     const handleLike = async()=>{
-        await axios.put(`/video/like/${currentVideo._id}`)
+        await axios.put(`https://random-videos-api.onrender.com/video/like/${currentVideo._id}`)
         dispatch(like(user._id))
     }
     const handleDislike = async()=>{
-        await axios.put(`/video/dislike/${currentVideo._id}`)
+        await axios.put(`https://random-videos-api.onrender.com/video/dislike/${currentVideo._id}`)
         dispatch(dislike(user._id))
     }
 
@@ -47,10 +47,10 @@ const View = ()=>{
         const fetchInfo = async ()=>{
             dispatch(startFetchingChannel())
             dispatch(startFetch())
-            const videosRes= await axios.get('/video')
-            const currentVideoRes = await axios.get(`/video/${path}`)
-            const currentChannelRes = await axios.get(`/user/${currentVideoRes.data.authorID}`)
-            const commentsRes = await axios.get(`/comments/${path}`)
+            const videosRes= await axios.get('https://random-videos-api.onrender.com/video')
+            const currentVideoRes = await axios.get(`https://random-videos-api.onrender.com/video/${path}`)
+            const currentChannelRes = await axios.get(`https://random-videos-api.onrender.com/user/${currentVideoRes.data.authorID}`)
+            const commentsRes = await axios.get(`https://random-videos-api.onrender.com/comments/${path}`)
             setComments(commentsRes.data)
             dispatch(fetchSucces(currentVideoRes.data))
             dispatch(fetchingChannelSucces(currentChannelRes.data.data))

@@ -10,7 +10,7 @@ const [authorIcon, setAuthorIcon] = useState("")
 useEffect(()=>{
     const fetchAuthor = async ()=>{
         if(comment.author !== undefined){
-           const res = await axios.get(`/user/${comment.author}`)
+           const res = await axios.get(`https://random-videos-api.onrender.com/user/${comment.author}`)
             setAuthor(res.data.data.name)
             setAuthorIcon(res.data.data.icon) 
         }

@@ -18,7 +18,7 @@ const handleSubscribeButton = async(event)=>{
     const target = event.currentTarget
     if(!currentChannel.subscribers.includes(user._id)){
         try {
-            await axios.put(`/user/subs/add/${currentChannel._id}`)
+            await axios.put(`https://random-videos-api.onrender.com/user/subs/add/${currentChannel._id}`)
             dispatch(subscribe(user._id))  
             dispatch(subscribeChannel(currentChannel._id))
             target.classList.add('subscribed');
@@ -30,7 +30,7 @@ const handleSubscribeButton = async(event)=>{
         
     }else{
         try {
-            await axios.put(`/user/subs/delete/${currentChannel._id}`)
+            await axios.put(`https://random-videos-api.onrender.com/user/subs/delete/${currentChannel._id}`)
             dispatch(unsubscribe(user._id))
             dispatch(unsubscribeChannel(currentChannel._id))
             target.classList.remove('subscribed');

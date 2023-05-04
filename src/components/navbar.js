@@ -24,7 +24,7 @@ const Navbar = ({setDisplayLoginForm})=>{
     }
     useEffect(()=>{
         const feachTrendingVideos = async ()=>{
-            const res = await axios.get(`/video/search/trending`)
+            const res = await axios.get(`https://random-videos-api.onrender.com/video/search/trending`)
             setTrendingVideo(res.data)
         }
         feachTrendingVideos()

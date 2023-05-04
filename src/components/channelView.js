@@ -17,8 +17,8 @@ const ChannelView = ()=>{
 
     useEffect(()=>{
         const searchInfo = async ()=>{
-            const videosRes = await axios.get(`/video/subscribed/${path}`)
-            const channelRes = await axios.get(`/user/${path}`)
+            const videosRes = await axios.get(`https://random-videos-api.onrender.com/video/subscribed/${path}`)
+            const channelRes = await axios.get(`https://random-videos-api.onrender.com/user/${path}`)
             dispatch(fetchingChannelSucces(channelRes.data.data))
             setVideos(videosRes.data)
         }

@@ -13,7 +13,7 @@ const ShowSubscribed = ()=>{
             let subscribedArray = []
             for(let i = 0; i<user.subscribed.length; i++)
             {
-                const res = await axios.get(`/user/${user.subscribed[i]}`)
+                const res = await axios.get(`https://random-videos-api.onrender.com/user/${user.subscribed[i]}`)
                 subscribedArray.push(res.data.data)
             }
             setSubscribed(subscribedArray)

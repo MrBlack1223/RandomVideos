@@ -21,7 +21,7 @@ const Searchbar = ({setDisplayLoginForm, setDisplayAddVideoButton})=>{
     }
     const handleLogout = ()=>{
         dispatch(logout())
-        axios.get('/user/test/logout')
+        axios.get('https://random-videos-api.onrender.com/user/test/logout')
     }
 
     const user = useSelector(state=> state.reducer.user.activeUser)
@@ -29,7 +29,7 @@ const Searchbar = ({setDisplayLoginForm, setDisplayAddVideoButton})=>{
     useEffect(()=>{
         const fetchInfo = async ()=>{
             if(searched.length > 2){
-                const res = await axios.get(`/video/search/search?search=${searched}`)
+                const res = await axios.get(`https://random-videos-api.onrender.com/video/search/search?search=${searched}`)
                 const correct = res.data.splice(0,5)
                 console.log(correct)
                 setResults(correct) 

@@ -52,7 +52,7 @@ const AddVideoForm = ({setDisplayAddVideoButton})=>{
     }
 
     const addVideo = async ()=>{
-        const res = await axios.post('/video/add',inputs)
+        const res = await axios.post('https://random-videos-api.onrender.com/video/add',inputs)
         res.status === 200 ? navigate(`/video/${res.data._id}`) : console.log('Wystąpił problem...')
         setInputs({})
     }

@@ -11,7 +11,7 @@ const Comments = ({commentsArray})=>{
 
     const handleAddComment = async(e)=>{
         e.preventDefault()
-        const res = await axios.post('/comments',{
+        const res = await axios.post('https://random-videos-api.onrender.com/comments',{
             videoID : path,
             text: text,
         },{withCredentials:true})
