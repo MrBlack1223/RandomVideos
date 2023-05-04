@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux"
 import { loginSucces } from "../Redux/userSlice"
 
 const LoginForm = ({setDisplayLoginForm})=>{
-    
+    axios.defaults.withCredentials = true
     const [userData, setUserData] = useState({
         name:'',
         password:'',
