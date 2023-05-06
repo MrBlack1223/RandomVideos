@@ -1,0 +1,46 @@
+.loadingScreenContainer{
+    position: fixed;
+    width: 85vw;
+    height: 100%;
+    background-color: rgb(37, 37, 37);  
+    display: flex;
+    flex-wrap: wrap;
+    align-items: space-evenly;
+    justify-content: center;
+    gap: 25px;
+}
+.skeleton{
+    width: 20vw;
+    height: 25vh;
+    animation: skeletonAnimation 2s infinite ease-in-out alternate;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.skeletonVideo{
+    width: 20vw;
+    height: 20vh;
+    background-color: gray;
+    margin-top: 10px;
+}
+.skeletonImage{
+    background-color: gray;
+    width: 3vw;
+    height: 3vw;
+    border-radius: 50%;
+}
+.skeletonText{
+    background-color: gray;
+    width: 15vw;
+    height: 2vw;
+}
+@keyframes skeletonAnimation {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
