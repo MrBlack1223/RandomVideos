@@ -42,8 +42,8 @@ return <Link to = {`/video/${video._id}`}><div className={returnClassName()+'Vid
                     {searched && <img src = {authorIcon ? authorIcon :  'https://cdn.pixabay.com/photo/2022/10/20/16/17/animal-7535234_960_720.jpg'} className = "searchedAuthorIcon"></img>}
                     {!suggested ? author : ""}
                 </h3>
-                {video.createdAt ? `${format(video.createdAt)}`:''}
-                <h3 className={returnClassName()+'Views'}>{!suggested ? video.views+" views" : ""}</h3>
+                
+                <h3 className={returnClassName()+'Views'}>{!suggested ? video.views+" views" : ""}|{video.createdAt ? `${format(video.createdAt)}`:''}</h3>
             </div>
         </div>
 </div></Link>
