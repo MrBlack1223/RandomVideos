@@ -8,6 +8,7 @@ import Videopage from './homevideos';
 import { useState , useEffect} from 'react';
 import Comments from './comments';
 import axios from 'axios';
+import {format} from 'timeago.js'
 import { Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSucces,like,dislike,startFetch } from '../Redux/videoSlice';
@@ -91,7 +92,7 @@ const View = ()=>{
                         <SubscribeButton />
                     </div>
                     <div className = {hide ? "hiddenVideoDesc" : "fullVideoDesc"}>
-                        {currentVideo.createdAt && currentVideo.createdAt}
+                        {currentVideo.createdAt && format(currentVideo.createdAt)}
                         {currentVideo.desc}
                     </div>
                 </div>

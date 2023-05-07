@@ -2,7 +2,7 @@ import axios from "axios"
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-
+import { format } from 'timeago.js';
 const VideoCard = ({video,recommendation,searched,suggested})=>{
 
 const [author,setAuthor] = useState()
@@ -42,7 +42,7 @@ return <Link to = {`/video/${video._id}`}><div className={returnClassName()+'Vid
                     {searched && <img src = {authorIcon ? authorIcon :  'https://cdn.pixabay.com/photo/2022/10/20/16/17/animal-7535234_960_720.jpg'} className = "searchedAuthorIcon"></img>}
                     {!suggested ? author : ""}
                 </h3>
-                {video.createdAt ? `${video.createdAt}`:''}
+                {video.createdAt ? `${format(video.createdAt)}`:''}
                 <h3 className={returnClassName()+'Views'}>{!suggested ? video.views+" views" : ""}</h3>
             </div>
         </div>
