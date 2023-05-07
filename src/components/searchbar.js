@@ -69,7 +69,7 @@ const Searchbar = ({setDisplayLoginForm, setDisplayAddVideoButton})=>{
             </div>
             <div className='searchbarBurronsContainer'>
                 <button onClick = {()=>setDisplayAddVideoButton(true)} className='addVideoButton'><VideoCallIcon fontSize='large'/></button>
-                {user.name ? <div className='userIcon'> {user.icon ? <img src = {`${user.icon}`} className='profileIcon'/> : <AccountCircleOutlinedIcon onClick = {handleLogout} style={{ fontSize: 60 }}/>} </div> 
+                {user.name ? <div className='userIcon'> {user.icon ? <img src = {`${user.icon}`} className='profileIcon'/> : <AccountCircleOutlinedIcon style={{ fontSize: 60 }}/>} </div> 
                 : <button className = 'loginButton' onClick = {handleShowLogin}> <AccountCircleOutlinedIcon /> Sign In</button>}
                 {user.name ? <div class = 'logoutButton' onClick = {handleLogout}> <LogoutIcon fontSize='large' /> Logout </div>:''}
             </div>

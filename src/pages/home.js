@@ -23,7 +23,7 @@ const Home = ()=>{
             setIsLoading(false)
         }
         fetchVideos()
-    },[])
+    },[isTrending])
 
     return (
     <div className="homeWrapper">
