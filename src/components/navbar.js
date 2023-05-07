@@ -10,9 +10,9 @@ import { useSelector } from 'react-redux';
 import axios from 'axios';
 import VideoCard from './videoCard';
 import ShowSubscribed from './showSubscribed';
+import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
 
-
-const Navbar = ({setIsTrending,setDisplayLoginForm})=>{
+const Navbar = ({setSubscribed,setIsTrending,setDisplayLoginForm})=>{
 
     const user = useSelector(state => state.reducer.user.activeUser)
 
@@ -24,9 +24,13 @@ const Navbar = ({setIsTrending,setDisplayLoginForm})=>{
 
     return(
         <div className="navWrapper" >
-            <Link to = "/" onClick = {()=>setIsTrending(false)}><span className="clickable"><HomeOutlinedIcon /> Home </span></Link>
+            <Link to = "/" onClick = {()=>{ setIsTrending(false) 
+                                            setSubscribed(false)
+                                            }}
+            ><span className="clickable"><HomeOutlinedIcon /> Home </span></Link>
             <span className="clickable"><SettingsOutlinedIcon /> Settings</span>
             <span className="clickable" onClick = {()=>{setIsTrending(true)}}><WhatshotIcon /> Trending</span>
+            <span className="clickable" onClick = {()=>{setSubscribed(true)}}><SubscriptionsIcon/> Subscribed</span>
             <div className="horizontalLine"></div>
             {
                 user.name ? 
