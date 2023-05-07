@@ -6,7 +6,6 @@ import { useState } from "react"
 import AddVideoForm from "../components/addVideo"
 
 const Video = ()=>{
-
     const [showVideoLoginFormButton,setVideoDisplayLoginForm] = useState(false)
     const [showVideoAddVideoForm, setDisplayAddVideoButton] = useState(false)
 

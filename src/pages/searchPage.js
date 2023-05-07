@@ -9,7 +9,6 @@ import LoginForm from "../components/loginForm";
 import AddVideoForm from "../components/addVideo";
 
 const SearchPage = ()=>{
-
     const [showSearchedLoginFormButton,setDisplayLoginForm] = useState(false)
     const [showSearchedAddVideoForm, setDisplayAddVideoButton] = useState(false)
 

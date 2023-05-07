@@ -1,7 +1,6 @@
 
 import './loadingPage.css'
 const LoadingPage =()=>{
-    
     return(
         <div className="loadingScreenContainer">
             <div className='skeleton'>

@@ -14,12 +14,13 @@ import { Provider } from "react-redux"
 import store from './Redux/store.js'
 import { PersistGate } from 'redux-persist/integration/react'
 import { persistStore } from 'redux-persist';
+import axios from "axios"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 let persistor = persistStore(store)
-
+axios.defaults.withCredentials = true
 root.render(
-  
+
     <Provider store={store}>
       <PersistGate loading={<p>Loading...</p>} persistor={persistor}>
         <BrowserRouter>
