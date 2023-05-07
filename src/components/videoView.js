@@ -72,7 +72,7 @@ const View = ()=>{
                     allowFullScreen
                 ></iframe>
                 <div className="title">{`${currentVideo.title}`}</div>
-                <div className="details"> {`${currentVideo.views + 1}`} views {currentVideo.createdAt && format(currentVideo.createdAt)}
+                <div className="details"> {`${currentVideo.views + 1}`} views • {currentVideo.createdAt && format(currentVideo.createdAt)}
                     <div className='buttons'>
                         {currentVideo.likes.includes(user._id) ? <ThumbUpIcon />  :<ThumbUpOutlinedIcon onClick={handleLike} />} {currentVideo.likes.length - 1}
                         {currentVideo.dislikes.includes(user._id) ?  <ThumbDownIcon /> : <ThumbDownAltOutlinedIcon onClick={handleDislike} />} {currentVideo.dislikes.length - 1}

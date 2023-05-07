@@ -43,7 +43,7 @@ return <Link to = {`/video/${video._id}`}><div className={returnClassName()+'Vid
                     {!suggested ? author : ""}
                 </h3>
                 
-                <h3 className={returnClassName()+'Views'}>{!suggested ? video.views+" views" : ""}|{video.createdAt ? `${format(video.createdAt)}`:''}</h3>
+                <h3 className={returnClassName()+'Views'}>{!suggested ? video.views+" views" : ""} • {video.createdAt ? `${format(video.createdAt)}`:''}</h3>
             </div>
         </div>
 </div></Link>
