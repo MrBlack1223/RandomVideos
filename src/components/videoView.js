@@ -91,7 +91,7 @@ const View = ()=>{
                         <SubscribeButton />
                     </div>
                     <div className = {hide ? "hiddenVideoDesc" : "fullVideoDesc"}>
-                        {currentVideo.createdAt && `${currentVideo.createdAt.getFullYear()}/${currentVideo.createdAt.getMonth()}/${currentVideo.createdAt.getDate()}`}
+                        {currentVideo.createdAt && currentVideo.createdAt}
                         {currentVideo.desc}
                     </div>
                 </div>
