@@ -72,11 +72,12 @@ const View = ()=>{
                 ></iframe>
                 <div className="title">{`${currentVideo.title}`}</div>
                 <div className="details"> {`${currentVideo.views + 1}`} views
-                <div className='buttons'>
-                {currentVideo.likes.includes(user._id) ? <ThumbUpIcon />  :<ThumbUpOutlinedIcon onClick={handleLike} />} {currentVideo.likes.length - 1}
-                {currentVideo.dislikes.includes(user._id) ?  <ThumbDownIcon /> : <ThumbDownAltOutlinedIcon onClick={handleDislike} />} {currentVideo.dislikes.length - 1}
-                <ReplyOutlinedIcon /> Share
-                </div></div>
+                    <div className='buttons'>
+                        {currentVideo.likes.includes(user._id) ? <ThumbUpIcon />  :<ThumbUpOutlinedIcon onClick={handleLike} />} {currentVideo.likes.length - 1}
+                        {currentVideo.dislikes.includes(user._id) ?  <ThumbDownIcon /> : <ThumbDownAltOutlinedIcon onClick={handleDislike} />} {currentVideo.dislikes.length - 1}
+                        <ReplyOutlinedIcon /> Share
+                    </div>
+                </div>
                 <div className='horizontalLine'></div>
                 <div className='videoDescContainer'>
                     <div className = "videoDescAuthorInfo">
@@ -90,6 +91,7 @@ const View = ()=>{
                         <SubscribeButton />
                     </div>
                     <div className = {hide ? "hiddenVideoDesc" : "fullVideoDesc"}>
+                        {currentVideo.createdAt && `${currentVideo.createdAt}`}
                         {currentVideo.desc}
                     </div>
                 </div>

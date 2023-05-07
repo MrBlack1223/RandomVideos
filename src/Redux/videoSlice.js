@@ -16,6 +16,7 @@ export const videoSlice = createSlice({
       desc: "",
       views: null,
       _id: null,
+      createdAt: ''
     },
   error: false,
   },
