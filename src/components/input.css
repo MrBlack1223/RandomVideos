@@ -1,0 +1,35 @@
+.customInput{
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+}
+.registerInput{
+    padding: 15px;
+    margin: 10px 0px;
+    border-radius: 5px;
+    font-size: 24px;
+    background-color: var(--search-bg-color);
+    border: none;
+    border-bottom: 1px solid white;
+    color: grey
+}
+label{
+    font-size: 16px;
+    color: grey;
+}
+.customInput span{
+    font-size: 12px;
+    padding: 3px;
+    color: red;
+    display: none;
+}
+.registerInput:focus{
+    outline: none;
+    box-shadow: none;
+}
+.registerInput:invalid[focused="true"]{
+    border-bottom: 1px solid red;
+}
+.registerInput:invalid[focused="true"] ~ span{
+    display: block;
+}

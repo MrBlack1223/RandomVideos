@@ -1,6 +1,7 @@
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import VideoCallIcon from '@mui/icons-material/VideoCall';
+import LogoutIcon from '@mui/icons-material/Logout';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { isRejected } from '@reduxjs/toolkit';
@@ -68,8 +69,9 @@ const Searchbar = ({setDisplayLoginForm, setDisplayAddVideoButton})=>{
             </div>
             <div className='searchbarBurronsContainer'>
                 <button onClick = {()=>setDisplayAddVideoButton(true)} className='addVideoButton'><VideoCallIcon fontSize='large'/></button>
-                {user.name ? <div className='userIcon'> {user.icon ? <img src = {`${user.icon}`} onClick = {handleLogout} className='profileIcon'/> : <AccountCircleOutlinedIcon onClick = {handleLogout} style={{ fontSize: 60 }}/>} </div> 
+                {user.name ? <div className='userIcon'> {user.icon ? <img src = {`${user.icon}`} className='profileIcon'/> : <AccountCircleOutlinedIcon onClick = {handleLogout} style={{ fontSize: 60 }}/>} </div> 
                 : <button className = 'loginButton' onClick = {handleShowLogin}> <AccountCircleOutlinedIcon /> Sign In</button>}
+                {user.name ? <div class = 'logoutButton' onClick = {handleLogout}> <LogoutIcon fontSize='large' /> Logout </div>:''}
             </div>
         </div >  
     )

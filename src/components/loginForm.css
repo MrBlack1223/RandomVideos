@@ -1,0 +1,63 @@
+.loginFormWrapper{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.685);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+.loginFormContainer{
+    position:fixed;
+    min-width: fit-content;
+    width: 30vw;
+    height: 80vh;
+    background-color: rgb(24, 24, 24);
+    margin-top: 10vh;
+    border-radius: 15px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 100;
+    
+}
+.loginFormTitle{
+    font-size: 40px;
+    text-align: center;
+    color: rgb(160, 160, 160);
+    width: 450px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.loginForm{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+.formSubmit{
+    width: 450px;
+    height: 50px;
+    background-color: rgb(146, 145, 145);
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+.loginRedirection{
+    font-size: 35px;
+    text-align: center;
+    color: rgb(160, 160, 160);
+    margin: auto 50px;
+    cursor: pointer;
+}
+.loginErrorMessage{
+    margin-top: 75px;
+    font-size: 24px;
+    color: rgb(218, 216, 216);
+}

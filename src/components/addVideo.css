@@ -1,0 +1,83 @@
+.addVideoFormWrapper{
+    background-color: rgba(0, 0, 0, 0.747);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+.addVideoFormContainer{
+    background-color:rgb(37, 37, 37);
+    color:rgb(218, 214, 214);
+    position: absolute;
+    width: 50vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 10;
+}
+.addVideoFormTitle{
+    font-size: 48px;
+    background-color: inherit;
+    color: rgb(218, 214, 214);
+}
+.addVideoFormInput{
+    background-color: inherit;
+    border: solid 1px black;
+    width: 40vw;
+    height: 35px;
+    margin: 10px 0;
+    color:rgb(218, 214, 214);
+    font-size: 24px;
+    padding: 15px;
+}
+.addVideoInputWrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    margin: 0;
+}
+.addVideoFormTextarea{
+    background-color: inherit;
+    border: black solid 1px;
+    width: 40vw;
+    height: 30%;
+    color:rgb(218, 214, 214);
+    font-size: 24px;
+    padding: 15px;
+}
+.addVideoFormSubmitButton{
+    background-color: inherit;
+    color: rgb(218, 214, 214);
+    width: 200px;
+    height: 100px;
+    margin-bottom: 15px;
+    font-size: 32px;
+    cursor: pointer;
+}
+.addVideoFormCloseButton{
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: inherit;
+    border: none;
+    color: rgb(218, 214, 214);
+    font-size: 24px;
+    cursor: pointer;
+}
+.addVideoButton{
+    background-color: inherit;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+}

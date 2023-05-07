@@ -13,11 +13,12 @@ const Home = ()=>{
     const [showLoginFormButton,setDisplayLoginForm] = useState(false)
     const [showAddVideoForm, setDisplayAddVideoButton] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
+    const [isTrending, setIsTrending] = useState(false)
 
     useEffect(()=>{
         const fetchVideos = async ()=>{
             setIsLoading(true)
-            const res= await axios.get('https://random-videos-api.onrender.com/video')
+            const res= await axios.get(`https://random-videos-api.onrender.com/video${isTrending ? '/search/trending':''}`)
             setVideos(res.data)
             setIsLoading(false)
         }
@@ -26,7 +27,7 @@ const Home = ()=>{
 
     return (
     <div className="homeWrapper">
-        <Navbar setDisplayLoginForm = {setDisplayLoginForm}/>
+        <Navbar setIsTrending = {setIsTrending} setDisplayLoginForm = {setDisplayLoginForm}/>
         <Searchbar setDisplayLoginForm = {setDisplayLoginForm} setDisplayAddVideoButton = {setDisplayAddVideoButton}/>
         <Videopage loading = {isLoading} recommendation={false} videos = {videos}/>
         {showLoginFormButton && <LoginForm setDisplayLoginForm = {setDisplayLoginForm} />}

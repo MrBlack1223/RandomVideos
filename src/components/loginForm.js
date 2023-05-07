@@ -3,9 +3,11 @@ import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { loginSucces } from "../Redux/userSlice"
+import CustomInput from "./input.js";
+import './loginForm.css'
+
 
 const LoginForm = ({setDisplayLoginForm})=>{
-    axios.defaults.withCredentials = true
     const [userData, setUserData] = useState({
         name:'',
         password:'',
@@ -13,6 +15,65 @@ const LoginForm = ({setDisplayLoginForm})=>{
     })
     const [error,setError] = useState(false)
     const [signIn, setSignIn] = useState(false)
+    const inputs = !signIn ? [{
+        id: 1,
+        name: "name",
+        type: "text",
+        placeholder: "Username",
+        errorMessage:
+          "Username should be 3-16 characters and shouldn't include any special character!",
+        label: "Username",
+        pattern: "^[A-Za-z0-9]{3,16}$",
+        required: true,
+      },
+      {
+        id: 2,
+        name: "password",
+        type: "password",
+        placeholder: "Password",
+        errorMessage:
+          "Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character!",
+        label: "Password",
+        pattern: `^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$`,
+        required: true,
+      }]:
+      [
+        {
+          id: 1,
+          name: "email",
+          type: "email",
+          placeholder: "E-mail",
+          errorMessage: "E-mail incorrect",
+          label: "E-mail",
+          required: true,
+        },
+        {
+          id: 2,
+          name: "name",
+          type: "text",
+          placeholder: "Username",
+          errorMessage:
+            "Username should be 3-16 characters and shouldn't include any special character!",
+          label: "Username",
+          pattern: "^[A-Za-z0-9]{3,16}$",
+          required: true,
+        },
+        {
+          id: 3,
+          name: "password",
+          type: "password",
+          placeholder: "Password",
+          errorMessage:
+            "Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character!",
+          label: "Password",
+          pattern: `^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$`,
+          required: true,
+        },
+
+      ]
+
+    axios.defaults.withCredentials = true
+    
 
     const dispatch = useDispatch()
 
@@ -20,28 +81,13 @@ const LoginForm = ({setDisplayLoginForm})=>{
         setSignIn(prev => !prev)
     }
 
-    const handleLoginChange = (e)=>{
+    const handleChange = (e)=>{
         setUserData({
             ...userData,
-            name: e.target.value,
+            [e.target.name ]: e.target.value,
         })
         
     }
-
-    const handlePasswordChange = (e)=>{
-        setUserData({
-            ...userData,
-            password: e.target.value,
-        })
-    }
-    const handleEmailChange = (e)=>{
-        setUserData({
-            ...userData,
-            email: e.target.value,
-        })
-    }
-
-
     const handleClose = ()=>{
         setDisplayLoginForm(false)
     }
@@ -65,18 +111,24 @@ const LoginForm = ({setDisplayLoginForm})=>{
     }
 
 
-    return(<div className="loginFormWrapper"><div className="loginFormContainer">
-        <CloseOutlinedIcon  onClick = {handleClose} className="closeLoginForm"/>
-        <span className="loginFormTitle">{signIn ? 'Create New Account': 'Login'}</span>
-        <form className="loginForm" onSubmit={handleSubmit}>
-            {signIn ? <input className="formInput" value = {userData.email} onChange = {handleEmailChange} placeholder="E-mail"></input> : ''}
-            <input className="formInput" value = {userData.login} onChange = {handleLoginChange} placeholder={signIn ? "Name": "Login"}></input>
-            <input className="formInput" value = {userData.password} onChange = {handlePasswordChange} placeholder="Password" type="password"></input>
-            <button className="formSubmit" type="submit">{signIn ? 'Create New Account': 'Login'}</button>
-        </form>
-        {error ? <div className="loginErrorMessage"> {"Login went wrong"}</div> : ""}
-        <span className="loginRedirection" onClick = {showSignInScreen}>or {signIn ? 'log in': 'sign in'}</span>
-    </div>
+    return(<div className="loginFormWrapper">
+        <div className="loginFormContainer">
+            <CloseOutlinedIcon  onClick = {handleClose} className="closeLoginForm"/>
+            <span className="loginFormTitle">{signIn ? 'Create New Account': 'Login'}</span>
+            <form className="loginForm" onSubmit={handleSubmit}>
+                {inputs.map((input)=>{
+                    return <CustomInput
+                            signIn = {signIn}
+                            key = {input.id}
+                            {...input}
+                            value = {userData[input.name]}
+                            onChange = {handleChange}/>
+                })}
+                <button className="formSubmit" type="submit">{signIn ? 'Create New Account': 'Login'}</button>
+            </form>
+            {error ? <div className="loginErrorMessage"> {"Login went wrong"}</div> : ""}
+            <span className="loginRedirection" onClick = {showSignInScreen}>or {signIn ? 'log in': 'sign in'}</span>
+        </div>
     </div>)
 
 }   

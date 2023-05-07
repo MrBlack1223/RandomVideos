@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 import { storage } from "../firebase"
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage"
 import axios from "axios"
+import './addVideo.css'
 
 const AddVideoForm = ({setDisplayAddVideoButton})=>{
 
