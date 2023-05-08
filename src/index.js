@@ -15,6 +15,7 @@ import store from './Redux/store.js'
 import { PersistGate } from 'redux-persist/integration/react'
 import { persistStore } from 'redux-persist';
 import axios from "axios"
+import Settings from './pages/settings';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 let persistor = persistStore(store)
@@ -29,6 +30,7 @@ root.render(
               <Route path="/video/:id" element={<Video />} />
               <Route path="/search" element ={<SearchPage />} />
               <Route path="/channel/:id" element={<Channel />}/>
+              <Route path="/settings" element = {<Settings/>}/>
           </Routes>
         </BrowserRouter>
         </PersistGate>

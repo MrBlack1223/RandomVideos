@@ -28,9 +28,11 @@ const Navbar = ({setSubscribed,setIsTrending,setDisplayLoginForm})=>{
                                             setSubscribed(false)
                                             }}
             ><span className="clickable"><HomeOutlinedIcon /> Home </span></Link>
-            <span className="clickable"><SettingsOutlinedIcon /> Settings</span>
-            <span className="clickable" onClick = {()=>{setIsTrending(true)}}><WhatshotIcon /> Trending</span>
-            <span className="clickable" onClick = {()=>{setSubscribed(true)}}><SubscriptionsIcon/> Subscribed</span>
+            <Link to = {user.name ? '/settings' : `/`}><span className="clickable"><SettingsOutlinedIcon /> Settings</span></Link>
+            <span className="clickable" onClick = {()=>{setIsTrending(true)
+                                                        setSubscribed(false)}}><WhatshotIcon /> Trending</span>
+            <span className="clickable" onClick = {()=>{setSubscribed(true)
+                                                        setIsTrending(false)}}><SubscriptionsIcon/> Subscribed</span>
             <div className="horizontalLine"></div>
             {
                 user.name ? 
