@@ -78,7 +78,7 @@ const SettingsView = ()=>{
     }
     const handleUpdate = async (e)=>{
         e.preventDefault()
-        const res = await axios.post(`https://random-videos-api.onrender.com/user/${user._id}`,inputs)
+        const res = await axios.put(`https://random-videos-api.onrender.com/user/${user._id}`,inputs)
         res.status === 200 ? alert('Settings changed') : console.log('Wystąpił problem...')
         setUserData({})
     }
