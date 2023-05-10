@@ -94,7 +94,7 @@ const SettingsView = ()=>{
             <form className='settingsForm' onSubmit = {(e)=>{handleUpdate(e)}}>
                 <span className='settingsTitle'>User Settings</span>
                 <div className='settingsCurrentUserInfo'>
-                    <img className='settingsUserIcon'src = {user.icon}></img>
+                    <img className='settingsUserIcon'src = {user.icon ? user.icon : 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973461_960_720.png'}></img>
                     <div className= 'settingsInfo'>
                         <div className='settingsUserName'>
                             <span className='settingsSpan'>Username:</span>
