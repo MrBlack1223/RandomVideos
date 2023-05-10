@@ -7,14 +7,7 @@ import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage"
 import axios from "axios"
 
 const SettingsView = ()=>{
-    const testUser = {
-        name: "test",
-        email: "test@wp.pl",
-        subscribed: [],
-        videos: [],
-        _id: "",
-        icon: "https://cdn.pixabay.com/photo/2023/04/28/14/35/dog-7956828_960_720.jpg",
-    }
+
     const inputs = [{
         id: 1,
         name: "name",
@@ -38,22 +31,19 @@ const SettingsView = ()=>{
       }]
     const user = useSelector(state=> state.reducer.user.activeUser)
     const [userData, setUserData] = useState({
-        name: user.name,
-        email: user.email,
-        icon: user.icon,
-        banner: user.banner
+        name: '',
+        email:  '',
+        icon: '',
+        banner: ''
     })
     const [img, setImg] = useState(null)
     const [banner, setBanner] = useState(null)
     const [imgProgress, setImgProgress] = useState(0)
     const handleChange = (e)=>{
-        if(e.target.value.length > 3){
-            setUserData({
-            ...userData,
-            [e.target.name ]: e.target.value,
-            })
-        }
-        
+        setUserData({
+        ...userData,
+        [e.target.name ]: e.target.value,
+        })
     }
     const uploadFile = async(file,fileType)=>{
         const name =  file.name
