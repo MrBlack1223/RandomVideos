@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux"
 import { loginSucces } from "../Redux/userSlice"
 import CustomInput from "./input.js";
 import './loginForm.css'
+import { ToastContainer, toast } from "react-toastify";
 
 
 const LoginForm = ({setDisplayLoginForm})=>{
@@ -13,7 +14,6 @@ const LoginForm = ({setDisplayLoginForm})=>{
         password:'',
         email: ''
     })
-    const [error,setError] = useState(false)
     const [signIn, setSignIn] = useState(false)
     const inputs = !signIn ? [{
         id: 1,
@@ -74,7 +74,19 @@ const LoginForm = ({setDisplayLoginForm})=>{
 
     axios.defaults.withCredentials = true
     
-
+    const popup =(msg)=>{
+      const popupOpt = {
+          position: "bottom-right",
+          autoClose: 4000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+      };
+      msg === 'succes' ? toast.success('Settings changed',popupOpt) : toast.error('Wrong credentials',popupOpt)
+    }
     const dispatch = useDispatch()
 
     const showSignInScreen = ()=>{
@@ -97,11 +109,10 @@ const LoginForm = ({setDisplayLoginForm})=>{
         const data = signIn ? userData : {name:userData.name, password: userData.password}
         try{
             const res = await axios.post(`https://random-videos-api.onrender.com/user${signIn ? '' :'/login'}`,data, {withCredentials: true});
-            console.log(res)
             !signIn &&  dispatch(loginSucces(res.data))
             setDisplayLoginForm(false)
         }catch(e){
-            setError(true)
+            popup('failure')
         }
         setUserData({
             name:'',
@@ -126,9 +137,9 @@ const LoginForm = ({setDisplayLoginForm})=>{
                 })}
                 <button className="formSubmit" type="submit">{signIn ? 'Create New Account': 'Login'}</button>
             </form>
-            {error ? <div className="loginErrorMessage"> {"Login went wrong"}</div> : ""}
             <span className="loginRedirection" onClick = {showSignInScreen}>or {signIn ? 'log in': 'sign in'}</span>
         </div>
+        <ToastContainer />
     </div>)
 
 }   
