@@ -70,7 +70,7 @@ const SettingsView = ()=>{
     const handleUpdate = async (e)=>{
         e.preventDefault()
         const res = await axios.put(`https://random-videos-api.onrender.com/user/${user._id}`,userData)
-        console.log(res.data.code)
+        console.log(res)
         res.data.code === 11000 ? alert('Other user alredy use this name or email') : 
         (res.status === 200 && res.data.code === undefined) ? alert('Settings changed') : console.log('Wystąpił problem...')
         setUserData({})
