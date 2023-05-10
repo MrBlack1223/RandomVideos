@@ -127,7 +127,7 @@ const SettingsView = ()=>{
                         <label htmlFor='img' className="settingsChangeIconLabel">Select new channel banner: </label>
                         <input type='file' className="settingsChangeIcon" id='banner' accept="image/*" onChange = {(e)=>setBanner(e.target.files[0])}></input>
                     </div>
-                    <div>
+                    <div className='inputContainer'>
                         {inputs.map((input)=>{
                             return <CustomInput
                                     key = {input.id}

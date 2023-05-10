@@ -9,16 +9,18 @@
 .settingsTitle{
     width: 55vw;
     height: 5vh;
-    color: rgb(156, 68, 68);
+    color: rgb(231, 64, 64);
     font-size: 48px;
     padding: 15px;
 }
 .settingsForm{
     width: 55vw;
+    margin-top: 5vh;
+    min-width: fit-content;
     height: 75vh;
     border-radius: 15px;
     box-shadow: 0px 0px 56px 12px rgba(0,0,0,1);
-    background-color: rgb(22, 22, 22);
+    background-color: rgb(39, 39, 39);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -95,4 +97,61 @@
     padding: 10px;
     font-size: 24px;
     cursor: pointer;
+}
+@media only screen and (max-width: 755px){
+    .settingsForm{
+        flex-direction: column;
+        height: fit-content;
+    }
+    .settingsInputs{
+        flex-direction: column;
+        align-items: center;
+    }
+    .settingsInfo{
+        gap: 0;
+    }
+    .settingsTitle{
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 456px){
+    .settingsViewContainer{
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    .settingsForm{
+        width: 100% !important;
+        height: fit-content !important;
+        border-radius: 0;
+    }
+    .settingsCurrentUserInfo{
+        flex-direction: column;
+    }
+    .settingsUserIcon{
+        margin-top: 50px;
+    }
+    .settingsInputs{
+        width: 100vw;
+    }
+    .settingsInfo{
+        gap: 0;
+    }
+    .settingsTitle{
+        display: none;
+    }
+    .settingsChangeIconWrapper{
+        gap: 5px;
+    }
+    .settingsChangeIcon{
+        width: 95vw;
+        font-size: 25px;
+    }
+    .settingsChangeIconLabel{
+        padding: 5px;
+        font-size: 24px;
+        cursor: pointer;
+    }
+    .settingsSaveChangesButton{
+        margin-bottom: 20px;
+    }
 }
