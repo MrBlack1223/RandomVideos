@@ -28,7 +28,7 @@ const SettingsView = ()=>{
       },
       {
         id: 2,
-        name: "e-mail",
+        name: "email",
         type: "e-mail",
         placeholder: "New E-mail",
         errorMessage:
@@ -77,7 +77,7 @@ const SettingsView = ()=>{
     const handleUpdate = async (e)=>{
         e.preventDefault()
         const res = await axios.put(`https://random-videos-api.onrender.com/user/${user._id}`,userData)
-        console.log(user)
+        console.log(res.data.code)
         res.status === 200 ? alert('Settings changed') : console.log('Wystąpił problem...')
         setUserData({})
     }
