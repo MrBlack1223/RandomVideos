@@ -17,7 +17,7 @@ const SettingsView = ()=>{
           "Username should be 3-16 characters and shouldn't include any special character!",
         label: "New Username",
         pattern: "^[A-Za-z0-9]{3,16}$",
-        required: false,
+        required: true,
       },
       {
         id: 2,
@@ -27,14 +27,14 @@ const SettingsView = ()=>{
         errorMessage:
           "E-mail is incorrect",
         label: "New E-mail",
-        required: false,
+        required: true,
       }]
     const user = useSelector(state=> state.reducer.user.activeUser)
     const [userData, setUserData] = useState({
-        name: '',
-        email:  '',
-        icon: '',
-        banner: ''
+        name: user.name,
+        email:  user.email,
+        icon: user.icon,
+        banner: user.banner
     })
     const [img, setImg] = useState(null)
     const [banner, setBanner] = useState(null)
