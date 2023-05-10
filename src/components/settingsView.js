@@ -94,7 +94,6 @@ const SettingsView = ()=>{
         if(res.data.code === 11000){
             popup('failure')
         }
-        setUserData({})
     }
     useEffect(()=>{
         img && uploadFile(img,'icon');
