@@ -36,11 +36,12 @@ const SettingsView = ()=>{
         label: "New E-mail",
         required: false,
       }]
-      const [userData, setUserData] = useState({
-        name:'',
-        email: '',
-        icon: '',
-        banner: ''
+    const user = useSelector(state=> state.reducer.user.activeUser)
+    const [userData, setUserData] = useState({
+        name: user.name,
+        email: user.email,
+        icon: user.icon,
+        banner: user.banner
     })
     const [img, setImg] = useState(null)
     const [banner, setBanner] = useState(null)
@@ -50,10 +51,8 @@ const SettingsView = ()=>{
             ...userData,
             [e.target.name ]: e.target.value,
         })
-        
     }
-    const user = useSelector(state=> state.reducer.user.activeUser)
-    const uploadFile = async(file)=>{
+    const uploadFile = async(file,fileType)=>{
         const name =  file.name
         const fileName = new Date().getTime() + name
         const fileRef = ref(storage, fileName)
@@ -68,8 +67,7 @@ const SettingsView = ()=>{
               console.log("File is not valid")
             }, 
             () => {
-                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                    let fileType = file.type === 'image/png' ? 'photo':'videoURL' 
+                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => { 
                     setUserData(prev=>{
                         return {...prev, [fileType] : downloadURL}
                     })
@@ -78,15 +76,15 @@ const SettingsView = ()=>{
     }
     const handleUpdate = async (e)=>{
         e.preventDefault()
-        const res = await axios.put(`https://random-videos-api.onrender.com/user/${user._id}`,inputs)
+        const res = await axios.put(`https://random-videos-api.onrender.com/user/${user._id}`,userData)
         res.status === 200 ? alert('Settings changed') : console.log('Wystąpił problem...')
         setUserData({})
     }
     useEffect(()=>{
-        img && uploadFile(img);
+        img && uploadFile(img,'icon');
     },[img])
     useEffect(()=>{
-        banner && uploadFile(banner);
+        banner && uploadFile(banner,'banner');
     },[banner])
 
     return (
