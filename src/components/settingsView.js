@@ -6,6 +6,8 @@ import { storage } from "../firebase"
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage"
 import axios from "axios"
 import { loginSucces } from '../Redux/userSlice'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SettingsView = ()=>{
 
@@ -47,6 +49,9 @@ const SettingsView = ()=>{
         [e.target.name ]: e.target.value,
         })
     }
+    const popup =(msg)=>{
+        toast(msg)
+    }
     const uploadFile = async(file,fileType)=>{
         const name =  file.name
         const fileName = new Date().getTime() + name
@@ -74,10 +79,10 @@ const SettingsView = ()=>{
         const res = await axios.put(`https://random-videos-api.onrender.com/user/${user._id}`,userData)
         if(res.status === 200 && res.data.code === undefined){
             dispatch(loginSucces(res.data))
-            alert('Settings changed')
+            popup('Settings changed')
         }
         if(res.data.code === 11000){
-            alert('Other user alredy use this name or email')
+            popup('Other user alredy use this name or email')
         }
         setUserData({})
     }
@@ -125,6 +130,7 @@ const SettingsView = ()=>{
                 </div>
                 <button className = 'settingsSaveChangesButton' type='submit'>Save changes</button>
             </form>
+            <ToastContainer />
         </div>
         
     )
