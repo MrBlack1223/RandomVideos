@@ -1,10 +1,11 @@
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import CustomInput from './input'
 import './settingsView.css'
 import { useEffect, useState } from 'react'
 import { storage } from "../firebase"
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage"
 import axios from "axios"
+import { loginSucces } from '../Redux/userSlice'
 
 const SettingsView = ()=>{
 
@@ -30,6 +31,7 @@ const SettingsView = ()=>{
         required: true,
       }]
     const user = useSelector(state=> state.reducer.user.activeUser)
+    const dispatch = useDispatch()
     const [userData, setUserData] = useState({
         name: user.name,
         email:  user.email,
@@ -70,9 +72,13 @@ const SettingsView = ()=>{
     const handleUpdate = async (e)=>{
         e.preventDefault()
         const res = await axios.put(`https://random-videos-api.onrender.com/user/${user._id}`,userData)
-        console.log(res)
-        res.data.code === 11000 ? alert('Other user alredy use this name or email') : 
-        (res.status === 200 && res.data.code === undefined) ? alert('Settings changed') : console.log('Wystąpił problem...')
+        if(res.status === 200 && res.data.code === undefined){
+            dispatch(loginSucces(res.data))
+            alert('Settings changed')
+        }
+        if(res.data.code === 11000){
+            alert('Other user alredy use this name or email')
+        }
         setUserData({})
     }
     useEffect(()=>{
