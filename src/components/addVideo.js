@@ -15,7 +15,7 @@ const AddVideoForm = ({setDisplayAddVideoButton})=>{
     const [videoProgress, setVideoProgress] = useState(0)
     const [inputs, setInputs] = useState({})
 
-    const uploadFile = async(file)=>{
+    const uploadFile = async(file,fileType)=>{
         const name =  file.name
         const fileName = new Date().getTime() + name
         const fileRef = ref(storage, fileName)
@@ -23,15 +23,14 @@ const AddVideoForm = ({setDisplayAddVideoButton})=>{
         uploadTask.on('state_changed', 
             (snapshot) => {
               const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-              file.type === 'image/png' ? setImgProgress(prev => progress): setVideoProgress(prev => progress)
+              file.type === 'photo' ? setImgProgress(prev => progress): setVideoProgress(prev => progress)
               console.log('Upload is ' + progress + '% done');
             }, 
             (error) => {
               console.log("File is not valid")
             }, 
             () => {
-                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                    let fileType = file.type === 'image/png' ? 'photo':'videoURL' 
+                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => { 
                     setInputs(prev=>{
                         return {...prev, [fileType] : downloadURL}
                     })
@@ -59,11 +58,11 @@ const AddVideoForm = ({setDisplayAddVideoButton})=>{
     }
 
     useEffect(()=>{
-        img && uploadFile(img);
+        img && uploadFile(img,'photo');
     },[img])
 
     useEffect(()=>{
-        video && uploadFile(video);
+        video && uploadFile(video,'videoURL');
     },[video])
 
     return(
