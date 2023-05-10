@@ -111,7 +111,7 @@ const LoginForm = ({setDisplayLoginForm})=>{
             const res = await axios.post(`https://random-videos-api.onrender.com/user${signIn ? '' :'/login'}`,data, {withCredentials: true});
             !signIn &&  dispatch(loginSucces(res.data))
             if(res.data.message === 'Something went wrong') popup('failure2')
-            if(res.data === 'User has been added!') setDisplayLoginForm(false)
+            if(res.data.message !== 'Something went wrong') setDisplayLoginForm(false)
         }catch(e){
             popup('failure')
         }
