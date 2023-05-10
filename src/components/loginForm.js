@@ -85,7 +85,7 @@ const LoginForm = ({setDisplayLoginForm})=>{
           progress: undefined,
           theme: "dark",
       };
-      msg === 'succes' ? toast.success('Settings changed',popupOpt) : toast.error('Wrong credentials',popupOpt)
+      msg === 'succes' ? toast.success('Succes',popupOpt) : toast.error('Wrong credentials',popupOpt)
     }
     const dispatch = useDispatch()
 
@@ -111,6 +111,7 @@ const LoginForm = ({setDisplayLoginForm})=>{
             const res = await axios.post(`https://random-videos-api.onrender.com/user${signIn ? '' :'/login'}`,data, {withCredentials: true});
             !signIn &&  dispatch(loginSucces(res.data))
             setDisplayLoginForm(false)
+            popup('succes')
         }catch(e){
             popup('failure')
         }
