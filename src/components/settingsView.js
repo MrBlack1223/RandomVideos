@@ -50,7 +50,17 @@ const SettingsView = ()=>{
         })
     }
     const popup =(msg)=>{
-        toast(msg)
+        const popupOpt = {
+            position: "bottom-right",
+            autoClose: 4000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+        };
+        msg === 'succes' ? toast.success('Settings changed',popupOpt) : toast.error('This name or e-mail is taken',popupOpt)
     }
     const uploadFile = async(file,fileType)=>{
         const name =  file.name
@@ -79,10 +89,10 @@ const SettingsView = ()=>{
         const res = await axios.put(`https://random-videos-api.onrender.com/user/${user._id}`,userData)
         if(res.status === 200 && res.data.code === undefined){
             dispatch(loginSucces(res.data))
-            popup('Settings changed')
+            popup('succes')
         }
         if(res.data.code === 11000){
-            popup('Other user alredy use this name or email')
+            popup('failure')
         }
         setUserData({})
     }
