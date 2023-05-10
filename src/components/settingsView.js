@@ -78,7 +78,8 @@ const SettingsView = ()=>{
         e.preventDefault()
         const res = await axios.put(`https://random-videos-api.onrender.com/user/${user._id}`,userData)
         console.log(res.data.code)
-        res.status === 200 ? alert('Settings changed') : console.log('Wystąpił problem...')
+        res.data.code === 11000 ? alert('Other user alredy use this name or email') : 
+        (res.status === 200 && res.data.code === undefined) ? alert('Settings changed') : console.log('Wystąpił problem...')
         setUserData({})
     }
     useEffect(()=>{
