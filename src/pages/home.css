@@ -243,7 +243,7 @@ input:focus {
     margin-top: 10vh;
     margin-left: 15vw;
     width: 85vw;
-    min-height: 60vh;
+    min-height: 90vh;
     background-color: rgb(37, 37, 37);
     color:rgb(218, 216, 216);
     display: flex;
