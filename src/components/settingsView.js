@@ -47,10 +47,13 @@ const SettingsView = ()=>{
     const [banner, setBanner] = useState(null)
     const [imgProgress, setImgProgress] = useState(0)
     const handleChange = (e)=>{
-        setUserData({
+        if(e.target.value.length > 3){
+            setUserData({
             ...userData,
             [e.target.name ]: e.target.value,
-        })
+            })
+        }
+        
     }
     const uploadFile = async(file,fileType)=>{
         const name =  file.name
